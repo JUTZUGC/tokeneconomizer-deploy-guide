@@ -1,0 +1,114 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "tokeneconomizer",
+    "nameCn": "TokenEconomizer",
+    "repoName": "tokeneconomizer-deploy-guide",
+    "oneLiner": "不改你的 agent，也不碰密钥，只在旁边记下每次会话花了多少",
+    "officialRepo": "https://github.com/microsoft/TokenEconomizer",
+    "officialDocs": "https://github.com/microsoft/TokenEconomizer#quick-start",
+    "stars": "4323",
+    "license": "Apache-2.0",
+    "highlights": [
+      "零侵入：不改 agent 源码，不接管模型调用",
+      "本地学习：统计与结论留在自己机器",
+      "多客户端：Claude Code、Codex、Copilot、opencode",
+      "工具裁剪建议：找出反复浪费上下文的调用",
+      "会话成本报告：按项目与时间看开销",
+      "Apache-2.0，微软开源"
+    ],
+    "mcpSupport": "项目本身不含 MCP；本仓库的 MCP 只提供安装步骤、版本要求与常见问题。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-11-02",
+    "verification": [
+      [
+        "README 确认 Python 3.10+、四类客户端与版本窗口",
+        "已核对 2026-11-02"
+      ],
+      [
+        "确认插件从克隆目录运行、数据在 ~/.tokeneconomizer",
+        "已核对 2026-11-02"
+      ],
+      [
+        "未实测安装与统计",
+        "说明 2026-11-02"
+      ],
+      [
+        "MCP 冒烟：initialize / tools/list 返回 get_guide、search_guide、get_project_info",
+        "已验证 2026-11-02"
+      ],
+      [
+        "非目标宿主调用 get_guide 被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-11-02"
+      ]
+    ],
+    "deploy": {
+      "type": "script",
+      "requires": [
+        "python"
+      ],
+      "steps": [
+        "git clone https://github.com/microsoft/TokenEconomizer.git",
+        "cd TokenEconomizer",
+        "claude plugin marketplace add \"$PWD\"",
+        "claude plugin install tokeneconomizer@tokeneconomizer",
+        "echo \"装好后在 Claude Code 里运行 /tokeneconomizer:status\""
+      ],
+      "stepsPs": [
+        "git clone https://github.com/microsoft/TokenEconomizer.git",
+        "Set-Location TokenEconomizer",
+        "claude plugin marketplace add \"$PWD\"",
+        "claude plugin install tokeneconomizer@tokeneconomizer",
+        "Write-Host \"装好后在 Claude Code 里运行 /tokeneconomizer:status\""
+      ],
+      "source": "https://github.com/microsoft/TokenEconomizer#quick-start"
+    },
+    "pitfalls": [
+      "状态命令报错：确认 Python 3.10+ 在 PATH，且已信任插件脚本",
+      "钩子不生效：在 agent 的信任提示里选择允许，然后重启会话",
+      "Codex 没反应：从下一个会话才生效，先退出再进",
+      "升级后失效：重新跑一次工具目录刷新",
+      "Cursor 装不上：Windows 不支持，换 macOS/Linux",
+      "数据对不上：只统计钩子能看到的调用，部分客户端成本显示不可用",
+      "删了仓库后插件坏掉：重新克隆并重新注册"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/tokeneconomizer-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/tokeneconomizer-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "TokenEconomizer",
+    "TokenEconomizer 安装",
+    "agent 成本控制",
+    "token 用量 统计",
+    "Claude Code 插件",
+    "Codex 成本",
+    "AI 编程 省钱",
+    "tokeneconomizer 教程",
+    "coding agent 监控",
+    "tokeneconomizer deploy guide"
+  ],
+  "topics": [
+    "ai-agents",
+    "cost-optimization",
+    "developer-tools",
+    "claude-code",
+    "python",
+    "tokeneconomizer"
+  ]
+}

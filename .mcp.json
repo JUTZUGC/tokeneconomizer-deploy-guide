@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "tokeneconomizer-guide": {
+      "command": "node",
+      "args": [
+        "mcp-server.mjs"
+      ]
+    }
+  }
+}
